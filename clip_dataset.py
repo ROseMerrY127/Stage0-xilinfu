@@ -158,12 +158,10 @@ class OCLClipDataset(Dataset):
         self.num_images = len({instance.image_name for instance in self.instances})
 
         self.prompts = {
-            "category": [f"a photo of a {name}." for name in self.category_classes],
-            "attribute": [
-                f"a photo of an object that is {name}." for name in self.attribute_classes
-            ],
-            # Preserve original IDs: several affordances share a verb but differ in meaning.
-            "affordance": [self._affordance_prompt(label) for label in self.affordance_classes],
+            "category": list(self.category_classes),
+            "attribute": list(self.attribute_classes),
+            # Keep one entry per affordance ID, even when labels share the same word.
+            "affordance": [label["word"][0] for label in self.affordance_classes],
         }
         self.text_inputs = {
             name: dict(
@@ -177,13 +175,6 @@ class OCLClipDataset(Dataset):
             )
             for name, prompts in self.prompts.items()
         }
-
-    @staticmethod
-    def _affordance_prompt(label: dict) -> str:
-        action = label["word"][0]
-        definition = " ".join(label["define"].split())
-        prompt = f"an object that enables the action {action}"
-        return f"{prompt}: {definition}." if definition else f"{prompt}."
 
     @staticmethod
     def _multi_hot(indices: tuple[int, ...], size: int) -> torch.Tensor:
