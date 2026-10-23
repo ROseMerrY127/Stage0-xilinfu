@@ -13,7 +13,7 @@ logs
 weights
 features
 data_packed
-
+*.tar
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -42,13 +42,17 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
-
+data/transfer_lists/
+models/
+test/
 # PyInstaller
 #  Usually these files are written by a python script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
 *.manifest
 *.spec
-
+*.pkl
+*.tgz
+*.gz
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
@@ -70,6 +74,7 @@ coverage.xml
 # Translations
 *.mo
 *.pot
+
 
 # Django stuff:
 *.log
@@ -143,3 +148,13 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+data/SUN/.
+data/aPY/.
+data/train2014
+data/val2014
+data/数据集
+data/COCO
+
+clip-vit-base-patch32.tar.gz
+docs/
+ObjectConceptLearning/data/resources/OCL*

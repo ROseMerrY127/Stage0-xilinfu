@@ -33,6 +33,7 @@ if [ ! -e "ayahoo_test_images" ]; then
 tar -xzf ayahoo_test_images.tar.gz;
 tar -xf VOCtrainval_14-Jul-2008.tar;
 cd ..;
+fi
 
 echo "Downloading COCO";
 mkdir -p COCO;
@@ -45,5 +46,5 @@ cd ..;
 
 
 # Prepare web image data
-tar -xf data/from_web.tgz
+tar -xf from_web.tgz
 python download_web_images.py

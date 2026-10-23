@@ -63,6 +63,13 @@ You may optionally download our pretrained OCRN model from [here](https://drive.
 
 ## Usage
 
+For the standalone Hugging Face CLIP inference experiment in `Test.md`, see the
+[CLIP inference guide](docs/clip_inference.md). It selects the ten largest object
+categories by instance count across all annotation files, then evaluates all
+objects from those categories. It uses batches of four object crops
+and reports category Top-k accuracy plus attribute/affordance mAP. Run
+`bash setup_clip_gpu.sh` on the GPU server to install its dependencies.
+
 Extract feature and the object prior:
 ```
 python extract_feature.py --cfg config/Faster50Feature.yaml --splits train

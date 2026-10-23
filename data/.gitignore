@@ -1,0 +1,4 @@
+/ImageNet/
+/imagenet_index/
+/test_subset/
+/transfer_lists/*.lock
