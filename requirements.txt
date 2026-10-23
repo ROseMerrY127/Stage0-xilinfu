@@ -1,10 +1,9 @@
-torch==1.8.1
-torchvision==0.9.1
-numpy==1.20
-pillow==8.2.0
-tensorboard
-sklearn
-tqdm
-pyyaml
-easydict
-termcolor
+# Standalone CLIP inference environment (Python 3.12).
+# On the GPU server: bash setup_clip_gpu.sh
+torch==2.8.0
+torchvision==0.23.0
+transformers==4.57.1
+numpy==2.2.6
+Pillow==11.3.0
+scikit-learn==1.7.2
+tqdm==4.67.1
